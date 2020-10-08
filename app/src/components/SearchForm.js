@@ -6,7 +6,7 @@ const SearchForm = (props) => {
   const [searchTerm, setSearchTerm] = useState('Search By ID');
 
   const handleChanges = (e) => {
-    setSearchTerm(e.target.name);
+    setSearchTerm(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -20,7 +20,7 @@ const SearchForm = (props) => {
     return (
       <>
         <Loader
-          type='Puff'
+          type='puff'
           color='#00BFFF'
           height={15}
           width={115}
