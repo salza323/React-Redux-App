@@ -1,9 +1,14 @@
-import { FETCH_CHARS_START, FETCH_CHARS_SUCCESS } from '../actions';
+import {
+  FETCH_CHARS_START,
+  FETCH_CHARS_SUCCESS,
+  SET_SEARCH_TERM,
+} from '../actions';
 
 const initialState = {
   chars: [],
   isLoading: false,
   error: '',
+  searchTerm: '',
 };
 
 export const reducer = (state = initialState, action) => {
@@ -18,6 +23,11 @@ export const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         chars: action.payload,
+      };
+    case SET_SEARCH_TERM:
+      return {
+        ...state,
+        searchTerm: action.payload,
       };
     default:
       return state;

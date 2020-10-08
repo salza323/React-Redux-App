@@ -13,3 +13,9 @@ export const fetchChars = (url) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
+
+export const handleChanges = (e) => (dispatch) => {
+  dispatch({ type: SET_SEARCH_TERM, payload: e.target.value });
+};
