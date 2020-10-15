@@ -15,11 +15,10 @@ function App(props) {
   );
 
   const [filteredChars, setFilteredChars] = useState(props.chars);
-  console.log(props.searchTerm);
 
   const renderLoader = () => {
     return (
-      <>
+      <div>
         <Loader
           type='Puff'
           color='#00BFFF'
@@ -27,7 +26,7 @@ function App(props) {
           width={115}
           timeout={30000} //3 secs
         />
-      </>
+      </div>
     );
   };
 
@@ -52,14 +51,13 @@ function App(props) {
           <SearchForm setUrl={setUrl} />
           {props.isLoading
             ? renderLoader()
-            : filteredChars.map((char) => (
-                <div key={char.id}>
+            : filteredChars.map((char, idx) => (
+                <div className='character-info' key={idx}>
                   <h1>{`Name: ${char.name}`}</h1>
                   <h3>{`Nickname: ${char.nickname}`}</h3>
                   <h3>{`Character ID: ${char.char_id}`}</h3>
                   <h3>{`Portrayed by: ${char.portrayed}`}</h3>
                   <img width='200px' src={char.img} alt='character snapshot' />
-                  <br></br>
                 </div>
               ))}
         </div>
@@ -67,8 +65,6 @@ function App(props) {
     </>
   );
 }
-
-//searchForm '' ?  {props.chars.map((char) => (<h1 key={char.id}>{char.name}</h1> : {props.chars.filter((char) => if char.name.includes searchTerm return true)}
 
 const mapStateToProps = (state) => {
   return {

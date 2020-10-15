@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { handleChanges } from '../store/actions';
 
 const SearchForm = (props) => {
-  console.log(handleChanges);
-  console.log(props.searchTerm);
-
   return (
     <form>
       <input
